@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>School Management</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    h2 {
+      margin-top: 40px;
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px 0;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>School Management</h1>
+
+  <!-- Student Section -->
+  <div class="section">
+    <h2>Add Student</h2>
+    <input type="text" id="studentName" placeholder="Student Name">
+    <button onclick="addItem('student')">Add Student</button>
+    <ul id="studentList"></ul>
+  </div>
+
+  <!-- Teacher Section -->
+  <div class="section">
+    <h2>Add Teacher</h2>
+    <input type="text" id="teacherName" placeholder="Teacher Name">
+    <button onclick="addItem('teacher')">Add Teacher</button>
+    <ul id="teacherList"></ul>
+  </div>
+
+  <!-- Subject Section -->
+  <div class="section">
+    <h2>Add Subject</h2>
+    <input type="text" id="subjectName" placeholder="Subject Name">
+    <button onclick="addItem('subject')">Add Subject</button>
+    <ul id="subjectList"></ul>
+  </div>
+
+  <script>
+    function addItem(type) {
+      let inputId = type + 'Name';
+      let listId = type + 'List';
+      let name = document.getElementById(inputId).value.trim();
+
+      if (name === '') {
+        alert('Please enter a ' + type + ' name.');
+        return;
+      }
+
+      let li = document.createElement('li');
+      li.textContent = name;
+      document.getElementById(listId).appendChild(li);
+
+      document.getElementById(inputId).value = '';
+    }
+  </script>
+
+</body>
+</html>
